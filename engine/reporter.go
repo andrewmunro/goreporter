@@ -24,7 +24,7 @@ import (
 
 	"github.com/fatih/color"
 	"github.com/golang/glog"
-	"github.com/json-iterator/go"
+	jsoniter "github.com/json-iterator/go"
 
 	"github.com/360EntSecGroup-Skylar/goreporter/utils"
 )
@@ -247,14 +247,15 @@ func (r *Reporter) GetFinalScore() (score float64) {
 	return
 }
 
-func NewReporter(projectPath, reportPath, reportFormat, htmlTemplate string) *Reporter {
+func NewReporter(projectPath, reportPath, exceptPackages, reportFormat, htmlTemplate string) *Reporter {
 	return &Reporter{
-		StartTime:    time.Now(),
-		Metrics:      make(map[string]Metric, 0),
-		ProjectPath:  projectPath,
-		ReportPath:   reportPath,
-		ReportFormat: reportFormat,
-		HtmlTemplate: htmlTemplate,
+		StartTime:      time.Now(),
+		Metrics:        make(map[string]Metric, 0),
+		ProjectPath:    projectPath,
+		ReportPath:     reportPath,
+		ExceptPackages: exceptPackages,
+		ReportFormat:   reportFormat,
+		HtmlTemplate:   htmlTemplate,
 	}
 }
 

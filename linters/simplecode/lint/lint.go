@@ -20,7 +20,7 @@ import (
 	"sort"
 	"strings"
 
-	"golang.org/x/tools/go/gcexportdata"
+	gcimporter "golang.org/x/tools/go/gcimporter15"
 )
 
 type Func func(*File)
